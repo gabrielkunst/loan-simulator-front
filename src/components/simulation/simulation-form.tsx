@@ -5,7 +5,7 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ErrorMessage } from '../ui/error-message'
-import { simulationFormSchema, SimulationFormType } from '@/app/utils/schemas'
+import { simulationFormSchema, SimulationFormType } from '@/utils/schemas'
 import toast from 'react-hot-toast'
 
 export function SimulationForm() {

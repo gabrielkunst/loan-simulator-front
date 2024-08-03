@@ -1,4 +1,4 @@
-import { simulationFormSchema } from '@/app/utils/schemas'
+import { simulationFormSchema } from '@/utils/schemas'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {

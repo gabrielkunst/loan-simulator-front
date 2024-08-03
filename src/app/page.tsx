@@ -1,6 +1,6 @@
-import { LoanSection } from './components/loan/loan-section'
-import { SimulationSection } from './components/simulation/simulation-section'
-import { Title } from './components/ui/title'
+import { LoanSection } from '../components/loan/loan-section'
+import { SimulationSection } from '../components/simulation/simulation-section'
+import { Title } from '../components/ui/title'
 
 export default function HomePage() {
   return (
