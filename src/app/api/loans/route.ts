@@ -8,8 +8,7 @@ export async function POST(request: Request) {
   if (!isValidFields.success) {
     return NextResponse.json(
       {
-        message:
-          'Dados inválidos. Verifique se todos os campos foram preenchidos corretamente.',
+        message: 'Dados inválidos.',
         errors: isValidFields.error.flatten(),
       },
       {
@@ -31,7 +30,7 @@ export async function POST(request: Request) {
     )
   }
 
-  const response = await fetch(`${apiUrl}/loans/simulation`, {
+  const response = await fetch(`${apiUrl}/loans`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
