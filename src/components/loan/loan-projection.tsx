@@ -40,26 +40,28 @@ export function LoanProjection({ installments }: LoanProjectionProps) {
                 className="border-b border-custom-gray-50"
               >
                 <td className="text-custom-gray-400 py-3 pr-4">
-                  {installments.outstandingBalance &&
-                    formatCurrency(installments.outstandingBalance)}
+                  {formatCurrency(installments.outstandingBalance)}
                 </td>
                 <td className="text-custom-gray-400 py-3 pr-4">
-                  {installments.interest &&
-                    formatCurrency(installments.interest)}
+                  {formatCurrency(installments.interest)}
                 </td>
                 <td className="text-custom-gray-400 py-3 pr-4">
-                  {installments.adjustedBalance &&
-                    formatCurrency(installments.adjustedBalance)}
+                  {formatCurrency(installments.adjustedBalance)}
                 </td>
                 <td className="text-custom-gray-400 py-3 pr-4">
-                  {installments.installmentAmount &&
-                    formatCurrency(installments.installmentAmount)}
+                  {formatCurrency(installments.installmentAmount)}
                 </td>
                 <td className="text-custom-gray-400 py-3">
-                  {installments.dueDate && installments.dueDate}
+                  {installments.dueDate}
                 </td>
               </tr>
             ))}
+
+            <tr className="border-b border-custom-gray-50">
+              <td className="text-custom-gray-400 py-3 pr-4">
+                {formatCurrency(0)}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
