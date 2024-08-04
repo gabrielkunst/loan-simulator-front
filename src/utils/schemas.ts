@@ -2,7 +2,7 @@ import { z } from 'zod'
 import {
   isValidBirthdate,
   isValidCPF,
-  isValidLoanValue,
+  isValidloanAmount,
   isValidMonthlyPayment,
 } from './validations'
 
@@ -22,10 +22,10 @@ export const simulationFormSchema = z.object({
     .string()
     .min(1, 'Data de nascimento não pode ser vazio')
     .refine(isValidBirthdate, 'Data de nascimento inválida'),
-  loanValue: z
+  loanAmount: z
     .string()
     .min(1, 'Valor do empréstimo não pode ser vazio')
-    .refine(isValidLoanValue, 'Valor do empréstimo inválido'),
+    .refine(isValidloanAmount, 'Valor do empréstimo inválido'),
   monthlyPayment: z
     .string()
     .min(1, 'Valor da parcela não pode ser vazio')

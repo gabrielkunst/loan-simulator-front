@@ -1,8 +1,6 @@
-import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Subtitle } from '../ui/subtitle'
-import { LoanInfoWrapper } from './loan-info-wrapper'
-import { LoanProjection } from './loan-projection'
+import { LoanContent } from './loan-content'
 
 export function LoanSection() {
   return (
@@ -12,14 +10,7 @@ export function LoanSection() {
       </Subtitle>
 
       <Card className="p-6 pb-8 mx-auto flex flex-col max-w-3xl gap-14">
-        <LoanInfoWrapper />
-        <LoanProjection />
-        <Button
-          variant="secondary"
-          className="max-w-sm mx-auto"
-        >
-          EFETIVAR O EMPRÉSTIMO
-        </Button>
+        <LoanContent />
       </Card>
     </section>
   )

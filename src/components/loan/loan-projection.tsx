@@ -1,70 +1,68 @@
-const tableData = [
-  {
-    id: 1,
-    outstandingBalance: 'R$ 60,000.00',
-    interest: 'R$ 600.00',
-    adjustedOutstandingBalance: 'R$ 60,600.00',
-    installmentValue: 'R$ 15,000.00',
-    dueDate: '20/09/21',
-  },
-  {
-    id: 2,
-    outstandingBalance: 'R$ 45.600,00',
-    interest: 'R$ 456,00',
-    adjustedOutstandingBalance: 'R$ 46.056,00',
-    installmentValue: 'R$ 15,000.00',
-    dueDate: '20/10/21',
-  },
-]
+import { Installment } from '@/app/types'
+import { formatCurrency } from '@/app/utils/functions/format-currency'
 
-export function LoanProjection() {
+interface LoanProjectionProps {
+  installments: Installment[]
+}
+
+export function LoanProjection({ installments }: LoanProjectionProps) {
   return (
     <div className="space-y-6">
       <h3 className="text-custom-gray-300 text-xs font-bold">
         PROJEÇÃO DAS PARCELAS:
       </h3>
 
-      <table className="w-full">
-        <thead className="border-b border-custom-gray-50">
-          <tr>
-            <th className="text-custom-gray-400 pr-4 py-3 text-sm text-left">
-              SALDO DEVEDOR
-            </th>
-            <th className="text-custom-gray-400 pr-4 py-3 text-sm text-left">
-              JUROS
-            </th>
-            <th className="text-custom-gray-400 pr-4 py-3 text-sm text-left">
-              SALDO DEVEDOR AJUSTADO
-            </th>
-            <th className="text-custom-gray-400 pr-4 py-3 text-sm text-left">
-              VALOR DA PARCELA
-            </th>
-            <th className="text-custom-gray-400 py-3 text-sm text-left">
-              VENCIMENTO
-            </th>
-          </tr>
-        </thead>
-        <tbody className="">
-          {tableData.map((row) => (
-            <tr
-              key={row.id}
-              className="border-b border-custom-gray-50"
-            >
-              <td className="text-custom-gray-400 py-3 pr-4">
-                {row.outstandingBalance}
-              </td>
-              <td className="text-custom-gray-400 py-3 pr-4">{row.interest}</td>
-              <td className="text-custom-gray-400 py-3 pr-4">
-                {row.adjustedOutstandingBalance}
-              </td>
-              <td className="text-custom-gray-400 py-3 pr-4">
-                {row.installmentValue}
-              </td>
-              <td className="text-custom-gray-400 py-3">{row.dueDate}</td>
+      <div className="w-full overflow-x-auto">
+        <table>
+          <thead className="border-b border-custom-gray-50">
+            <tr>
+              <th className="text-custom-gray-400 pr-4 py-3 text-sm truncate text-left">
+                SALDO DEVEDOR
+              </th>
+              <th className="text-custom-gray-400 pr-4 py-3 text-sm truncate text-left">
+                JUROS
+              </th>
+              <th className="text-custom-gray-400 pr-4 py-3 text-sm truncate text-left">
+                SALDO DEVEDOR AJUSTADO
+              </th>
+              <th className="text-custom-gray-400 pr-4 py-3 text-sm truncate text-left">
+                VALOR DA PARCELA
+              </th>
+              <th className="text-custom-gray-400 py-3 text-sm truncate text-left">
+                VENCIMENTO
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {installments.map((installments) => (
+              <tr
+                key={installments.outstandingBalance}
+                className="border-b border-custom-gray-50"
+              >
+                <td className="text-custom-gray-400 py-3 pr-4">
+                  {installments.outstandingBalance &&
+                    formatCurrency(installments.outstandingBalance)}
+                </td>
+                <td className="text-custom-gray-400 py-3 pr-4">
+                  {installments.interest &&
+                    formatCurrency(installments.interest)}
+                </td>
+                <td className="text-custom-gray-400 py-3 pr-4">
+                  {installments.adjustedBalance &&
+                    formatCurrency(installments.adjustedBalance)}
+                </td>
+                <td className="text-custom-gray-400 py-3 pr-4">
+                  {installments.installmentAmount &&
+                    formatCurrency(installments.installmentAmount)}
+                </td>
+                <td className="text-custom-gray-400 py-3">
+                  {installments.dueDate && installments.dueDate}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

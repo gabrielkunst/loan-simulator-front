@@ -5,7 +5,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function Card({ className, ...props }: CardProps) {
   return (
     <div
-      className={twMerge('w-full rounded bg-white', className)}
+      className={twMerge('w-full rounded bg-white drop-shadow', className)}
       {...props}
     />
   )

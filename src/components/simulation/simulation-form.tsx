@@ -7,11 +7,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ErrorMessage } from '../ui/error-message'
 import { simulationFormSchema, SimulationFormType } from '@/utils/schemas'
 import toast from 'react-hot-toast'
+import { useSelectedSimulation } from '@/app/contexts/selected-simulation/use-selected-simulation'
+import { CustomError } from '@/utils/custom-error'
 
 export function SimulationForm() {
+  const { setSelectedSimulation } = useSelectedSimulation()
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<SimulationFormType>({
     resolver: zodResolver(simulationFormSchema),
@@ -27,22 +31,22 @@ export function SimulationForm() {
         body: JSON.stringify(formData),
       })
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        console.log(errorData)
+      const json = await response.json()
 
-        throw new Error(
-          errorData.message || 'Ocorreu um erro ao simular o empréstimo.'
+      if (!response.ok) {
+        throw new CustomError(
+          json.message || 'Ocorreu um erro ao simular o empréstimo.'
         )
       }
 
-      const responseData = await response.json()
+      setSelectedSimulation({
+        simulation: json.simulation,
+        form: formData,
+      })
 
-      console.log(responseData)
-
-      // set as selected simulation on context
+      reset()
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof CustomError) {
         toast.error(error.message)
       } else {
         toast.error('Ocorreu um erro desconhecido ao simular o empréstimo.')
@@ -87,12 +91,12 @@ export function SimulationForm() {
 
       <div>
         <Input
-          {...register('loanValue')}
+          {...register('loanAmount')}
           disabled={isSubmitting}
-          isError={!!errors.loanValue}
+          isError={!!errors.loanAmount}
           placeholder="QUAL O VALOR DO EMPRÉSTIMO"
         />
-        <ErrorMessage>{errors.loanValue?.message}</ErrorMessage>
+        <ErrorMessage>{errors.loanAmount?.message}</ErrorMessage>
       </div>
 
       <div>

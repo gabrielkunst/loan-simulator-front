@@ -37,8 +37,8 @@ export function isValidBirthdate(birthdate: string): boolean {
   )
 }
 
-export function isValidLoanValue(loanValue: string): boolean {
-  return !!loanValue.match(/^\d+(\.\d{1,2})?$/)
+export function isValidloanAmount(loanAmount: string): boolean {
+  return !!loanAmount.match(/^\d+(\.\d{1,2})?$/)
 }
 
 export function isValidMonthlyPayment(monthlyPayment: string): boolean {

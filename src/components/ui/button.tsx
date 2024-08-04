@@ -17,7 +17,7 @@ export function Button({
   return (
     <button
       className={twMerge(
-        'text-center font-bold rounded focus:ring-1 w-full p-2 tracking-wider text-sm outline-none',
+        'text-center drop-shadow font-bold rounded focus:ring-1 w-full p-2 tracking-wider text-sm outline-none',
         buttonVariants[variant],
         className
       )}
