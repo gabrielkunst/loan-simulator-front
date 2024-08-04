@@ -1,4 +1,4 @@
-import { Simulation } from '@/app/types'
+import { Simulation } from '@/types'
 import { SimulationFormType } from '@/utils/schemas'
 import { createContext } from 'react'
 

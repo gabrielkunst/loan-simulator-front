@@ -1,9 +1,9 @@
 'use client'
 
-import { useSelectedSimulation } from '@/app/contexts/selected-simulation/use-selected-simulation'
 import { LoanInfoWrapper } from './loan-info-wrapper'
 import { LoanProjection } from './loan-projection'
 import { CreateLoanButton } from './create-loan-button'
+import { useSelectedSimulation } from '@/contexts/selected-simulation/use-selected-simulation'
 
 export function LoanContent() {
   const { selectedSimulation, setSelectedSimulation } = useSelectedSimulation()

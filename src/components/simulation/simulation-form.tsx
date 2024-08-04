@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ErrorMessage } from '../ui/error-message'
 import { simulationFormSchema, SimulationFormType } from '@/utils/schemas'
 import toast from 'react-hot-toast'
-import { useSelectedSimulation } from '@/app/contexts/selected-simulation/use-selected-simulation'
+import { useSelectedSimulation } from '@/contexts/selected-simulation/use-selected-simulation'
 import { CustomError } from '@/utils/custom-error'
 
 export function SimulationForm() {

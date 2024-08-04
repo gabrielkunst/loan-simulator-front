@@ -1,8 +1,8 @@
 import './globals.css'
+import { SelectedSimulationProvider } from '@/contexts/selected-simulation/selected-simulation-provider'
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
-import { SelectedSimulationProvider } from './contexts/selected-simulation/selected-simulation-provider'
 
 const openSans = Open_Sans({
   subsets: ['latin'],

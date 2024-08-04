@@ -1,6 +1,6 @@
 'use client'
 
-import { useSelectedSimulation } from '@/app/contexts/selected-simulation/use-selected-simulation'
+import { useSelectedSimulation } from '@/contexts/selected-simulation/use-selected-simulation'
 import { PropsWithChildren } from 'react'
 
 export function LoanWrapper({ children }: PropsWithChildren) {

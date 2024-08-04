@@ -1,4 +1,4 @@
-import { LoanWrapper } from '@/components/loan/loan-wrapper'
+import { LoanWrapper } from '../components/loan/loan-wrapper'
 import { LoanSection } from '../components/loan/loan-section'
 import { SimulationSection } from '../components/simulation/simulation-section'
 import { Title } from '../components/ui/title'

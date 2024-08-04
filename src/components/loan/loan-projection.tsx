@@ -1,5 +1,5 @@
-import { Installment } from '@/app/types'
-import { formatCurrency } from '@/app/utils/functions/format-currency'
+import { Installment } from '@/types'
+import { formatCurrency } from '@/utils/functions/format-currency'
 
 interface LoanProjectionProps {
   installments: Installment[]

@@ -1,6 +1,6 @@
-import { Simulation } from '@/app/types'
+import { formatCurrency } from '@/utils/functions/format-currency'
 import { LoanInfo } from './loan-info'
-import { formatCurrency } from '@/app/utils/functions/format-currency'
+import { Simulation } from '@/types'
 
 interface LoanInfoWrapperProps {
   simulation: Omit<Simulation, 'installments'>
