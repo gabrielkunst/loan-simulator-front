@@ -9,6 +9,7 @@ import { simulationFormSchema, SimulationFormType } from '@/utils/schemas'
 import toast from 'react-hot-toast'
 import { useSelectedSimulation } from '@/contexts/selected-simulation/use-selected-simulation'
 import { CustomError } from '@/utils/custom-error'
+import { MaskedInput } from '../ui/masked-input'
 
 export function SimulationForm() {
   const { setSelectedSimulation } = useSelectedSimulation()
@@ -60,8 +61,10 @@ export function SimulationForm() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
-        <Input
+        <MaskedInput
           {...register('cpf')}
+          mask="___.___.___-__"
+          replacement={{ _: /\d/ }}
           disabled={isSubmitting}
           isError={!!errors.cpf}
           placeholder="CPF"
@@ -80,8 +83,10 @@ export function SimulationForm() {
       </div>
 
       <div>
-        <Input
+        <MaskedInput
           {...register('birthdate')}
+          mask="dd/mm/yyyy"
+          replacement={{ d: /\d/, m: /\d/, y: /\d/ }}
           disabled={isSubmitting}
           isError={!!errors.birthdate}
           placeholder="DATA DE NASCIMENTO"

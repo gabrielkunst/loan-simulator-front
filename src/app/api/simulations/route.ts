@@ -31,12 +31,18 @@ export async function POST(request: Request) {
     )
   }
 
+  const [day, month, year] = body.birthdate.split('/')
+  const formattedDate = new Date(`${year}-${month}-${day}`).toISOString()
+
   const response = await fetch(`${apiUrl}/loans/simulation`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      ...body,
+      date: formattedDate,
+    }),
   })
 
   const data = await response.json()
