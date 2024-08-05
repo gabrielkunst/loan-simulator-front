@@ -2,6 +2,8 @@
 
 Este projeto é uma aplicação frontend de simulador de empréstimo construída com Next.js, TypeScript e Tailwind CSS. Ele permite aos usuários criar uma simulação, visualizar os resultados da simulação e solicitar um empréstimo.
 
+![Simulador de Empréstimo](.github/assets/app-screenshot.png)
+
 ## Funcionalidades
 
 - **Simulação de Empréstimo:** Usuários podem inserir seus dados e simular diferentes cenários de empréstimo.
